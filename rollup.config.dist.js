@@ -3,6 +3,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import { uglify } from 'rollup-plugin-uglify';
 import typescript from 'rollup-plugin-typescript2';
+import copy from 'rollup-plugin-copy';
 
 export default {
 
@@ -60,6 +61,15 @@ export default {
         //  See https://www.npmjs.com/package/rollup-plugin-uglify for config options
         uglify({
             mangle: false
+        }),
+
+        copy({
+            targets: [
+                {
+                    src: 'assets/**/*',
+                    dest: 'dist/assets',
+                }
+            ]
         })
 
     ]
