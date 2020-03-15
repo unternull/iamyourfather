@@ -2,6 +2,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import resolve from 'rollup-plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import typescript from '@rollup/plugin-typescript';
+import copy from 'rollup-plugin-copy';
 
 export default {
 
@@ -54,7 +55,16 @@ export default {
         }),
 
         //  See https://www.npmjs.com/package/rollup-plugin-typescript2 for config options
-        typescript()
+        typescript(),
+
+        copy({
+            targets: [
+                {
+                    src: 'assets/**/*',
+                    dest: 'dist/assets',
+                }
+            ]
+        })
 
         //  See https://www.npmjs.com/package/rollup-plugin-serve for config options
         // serve({
