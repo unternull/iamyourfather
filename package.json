@@ -1,0 +1,36 @@
+{
+  "name": "electron-phaser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "dependencies": {
+    "phaser": "^3.22.0",
+    "typescript": "^3.8.2"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-replace": "^2.3.1",
+    "@rollup/plugin-typescript": "^3.0.0",
+    "electron": "^8.0.2",
+    "rollup": "^1.31.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-serve": "^1.0.1",
+    "rollup-plugin-uglify": "^6.0.4",
+    "tslint": "^6.0.0"
+  },
+  "scripts": {
+    "build-phaser-dev": "rollup --config rollup.config.dev.js",
+    "build-phaser-prod": "rollup --config rollup.config.dist.js",
+    "watch-phaser": "rollup --watch --config rollup.config.dev.js",
+    "build-dev": "npm run build-phaser-dev && tsc",
+    "build-prod": "npm run build-phaser-prod && tsc",
+    "watch": "tsc -w",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build-dev && electron ./dist/index.js",
+    "launch": "electron ./dist/index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
