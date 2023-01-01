@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.ts",
   "dependencies": {
-    "phaser": "^3.22.0",
+    "phaser": "^3.55.2",
     "typescript": "^3.8.2"
   },
   "devDependencies": {
